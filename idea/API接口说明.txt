@@ -1,0 +1,28 @@
+API:以下 api 路径均以 https://cnodejs.org/api/v1 为前缀
+
+
+主题（用作首页，只需author.loginname、author.avatar_url、tab、title、reply_count、visit_count、last_reply_at、top）（最后回复的头像到下面的主题详情的"replies"的最后一个子类里面的"author.avatar_url",获取头像地址）
+
+get /topics 主题首页
+
+接收 get 参数
+
+page Number 页数
+tab String 主题分类。目前有 ask share job good
+limit Number 每一页的主题数量
+mdrender String 当为 false 时，不渲染。默认为 true，渲染出现的所有 markdown 格式文本。
+示例：/api/v1/topics
+
+数据结构：{"id":"文章的id","author_id":"作者的id","tab":"类型","content":"html的内容","title":"首页显示的主题标题","last_reply_at":"最后回复时间","top":"是否置顶","reply_count":"回复人数","visit_count":"访问人数","create_at":"创建时间","author":"作者信息（此为一个对象）","author.loginname":"作者名称","author.avatar_url":"用户头像url地址"}
+
+
+
+get /topic/:id 主题详情
+
+接收 get 参数
+
+mdrender String 当为 false 时，不渲染。默认为 true，渲染出现的所有 markdown 格式文本。
+accesstoken String 当需要知道一个主题是否被特定用户收藏以及对应评论是否被特定用户点赞时，才需要带此参数。会影响返回值中的 is_collect 以及 replies 列表中的 is_uped 值。
+示例：/api/v1/topic/5433d5e4e737cbe96dcef312（文章的id）
+
+数据结构：(与上面数据相同，多了个replies（回复的数据），以下为replies对象下的数据){"author.loginname":"回复的用户名称","author.avatar_url":"回复的用户头像url地址","author.content":"回复的内容html","author.create_at":"回复的时间","author.ups":"点赞的人数"}

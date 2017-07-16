@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+      	<link rel="stylesheet" href="css/main.css" />
+      	<link rel="stylesheet" href="css/bootstrap.css" />
+      	<link rel="icon" href="img/index/cnode_icon.png" type="image/x-icon">
+      	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+      	<script type="text/javascript" src="js/bootstrap.js" ></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row clearfix head">
+				<div class="col-md-12 column">
+					<!--导航菜单-->
+					<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" id="navbar_header" role="navigation">
+						<div class="navbar-header" >
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				                <span class="sr-only">Toggle navigation</span>
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+		              		</button>
+							<a class="navbar-brand" href="#"><img src="img/index/cnodejs_light.svg" alt=""></a>
+						</div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<form class="navbar-form navbar-left" role="search">
+								<div class="form-group">
+									<input id="search" type="text" class="form-control" placeholder="search" />
+								</div>
+							</form>
+							<ul class="nav navbar-nav navbar-right">
+								<li>
+									<a href="#">首页</a>
+								</li>
+								<li>
+									<a href="http://cnodejs.org/getstart">新手入门</a>
+								</li>
+								<li>
+									<a href="http://cnodejs.org/api">API</a>
+								</li>
+								<li>
+									<a href="http://cnodejs.org/about">关于</a>
+								</li>
+								<li>
+									<a href="#">注册</a>
+								</li>
+								<li>
+									<a href="http://cnodejs.org/signin">登录</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					<!--轮播图-->
+					<div class="carousel slide" id="carousel">
+						<ol class="carousel-indicators">
+							<li class="active" data-slide-to="0" data-target="#carousel"></li>
+							<li data-slide-to="1" data-target="#carousel"></li>
+							<li data-slide-to="2" data-target="#carousel"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item active">
+								<img alt="" src="img/index/default.jpg" />
+							</div>
+							<div class="item">
+								<img alt="" src="img/index/default1.jpg" />
+							</div>
+							<div class="item">
+								<img alt="" src="img/index/default2.jpg" />
+							</div>
+						</div>
+						<a class="left carousel-control" href="#carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+						<a class="right carousel-control" href="#carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+					</div>
+					<!--主页内容-->
+					<div class="jumbotron">
+						<!--加载动画-->
+						<div id="floor">
+							<div class="loader">
+								<div class="loading-1"></div>
+								<div class="loading-2">Loading...</div>
+							</div>
+						</div>
+						<!--分类标签-->
+						<div class="topic" name="topic">
+							<a href="#topic" data-link="tab=all" class="topic_tab current_tab">全部</a>
+							<a href="#topic" data-link="tab=good" class="topic_tab">精华</a>
+							<a href="#topic" data-link="tab=share" class="topic_tab">分享</a>
+							<a href="#topic" data-link="tab=ask" class="topic_tab">问答</a>
+							<a href="#topic" data-link="tab=job" class="topic_tab">招聘</a>
+							<a href="#topic" data-link="tab=dev" class="topic_tab">客户端测试</a>
+						</div>
+						<!--讨论的帖子内容-->
+						<div class="topic_content">
+							<ul id="topic_list"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--返回顶部按钮-->
+			<div id="toTop"><span>返回顶部</span></div>
+			<!--底部相关信息-->
+			<footer class="row clearfix">
+				<div class="col-md-12 column">
+					<h5 class="links"><a href="">RSS</a> <a href="">源码地址</a></h5>
+					<p>CNode 社区为国内最专业的 Node.js 开源技术社区，致力于 Node.js 的技术研究。</p>
+					<p>服务器赞助商为
+						<a href=""><img src="img/index/FuIpEaM9bvsZKnQ3QfPtBHWQmLM9"></a>，存储赞助商为
+						<a href=""><img src="img/index/Fg0jtDIcTqVC049oVu5-sn6Om4NX"></a>，由
+						<a href=""><img src="img/index/FpMZk31PDyxkC8yStmMQL4XroaGD"></a>提供应用性能服务。<br> 新手搭建 Node.js 服务器，推荐使用无需备案的
+						<a href="">DigitalOcean(https://www.digitalocean.com/)</a>
+					</p>
+				</div>
+			</footer>
+		</div>
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

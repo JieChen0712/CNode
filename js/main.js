@@ -12,15 +12,20 @@ $().ready(function(){
 	getPageNum(currentpage);
 		/*监听分页信息，且改变页面话题*/	
 		$(document).on('click',".pagination li a",function(){
+			
+			var activepage;
+//			$(this).parent().addClass("active").addClass("active").siblings().removeClass("active");
 			var nowpage=Number.parseInt($(this).attr("data-page"));
 			if(!($(this).is(".prevpage")||$(this).is(".nextpage"))){
 				var currp=$(this).parent().next().children()[0].innerHTML;
 				var currn=$(this).parent().prev().children()[0].innerHTML;
 				currentpage=nowpage;
 				if(currp=="..."){
-					getPageNum(nowpage);
+					activepage=$(this).html();
+					getPageNum(nowpage-1)
 				}
 				else if(typeof currn=="string"&&nowpage>1){
+					activepage=$(this).html();
 					getPageNum(nowpage-1);
 				}
 			}else if($(this).is(".prevpage")){
@@ -36,6 +41,12 @@ $().ready(function(){
 			loading();
 			slider();
 			getIndexPage(currenttaburl,currentpage);
+			for(var i=0;i<8;i++){
+				var ap=$(".pagination").children(':eq('+i+')').children().html();
+				if(ap==activepage){
+					$(".pagination").children(':eq('+i+')').addClass("active").siblings().remove("active");
+				}
+			}
 		});
 		/*话题分类监听*/
 		$(".topic").children().bind("click",function(){
@@ -164,12 +175,14 @@ function getPageNum(currentpage){
 	for (var i = 5; i > 0; i--) {
 		temppage+='<li><a href="javascript:void(0)" data-page="'+(pagenum-i)+'">'+(pagenum-i)+'</a></li>'
 	}
-		temppage+='<li><a class="disable">...</a></li>'
+		temppage+='<li class="disabled"><a>...</a></li>'
                 +'<li><a class="nextpage" href="javascript:void(0)">&raquo;</a></li>'
               	+'</ul>';
               // console.log(pagenum);
     $("#topic_list").next().remove();
 	$("#topic_list").after(temppage);
+//	$(".pagination li").eq(currentpage).addClass("active").siblings().removeClass("active");
+//	console.log(currentpage)
 }
 
 /*分类按钮*/
